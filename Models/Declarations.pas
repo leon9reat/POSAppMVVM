@@ -67,13 +67,36 @@ type
             TotalSalesText: string;
     end;
 
+    TInvoiceFormLabelsText = record
+        Title,
+            CustomerDetailsGroupText,
+            CustomerText,
+            CustomerDiscountRateText,
+            CustomerOutstandingBalanceText,
+            InvoiceItemsGroupText,
+            InvoiceItemsText,
+            InvoiceItemsQuantityText,
+            InvoiceItemsAddItemButtonText,
+            InvoiceItemsGridItemText,
+            InvoiceItemsGridQuantityText,
+            InvoiceItemsGridUnitPriceText,
+            InvoiceItemsGridAmountText,
+            BalanceGroupText,
+            BalanceInvoiceBalanceText,
+            BalanceDiscountText,
+            BalanceTotalText,
+            PrintInvoiceButtonText,
+            PrintingText,
+            CancelButtonText: string;
+    end;
+
     TNotificationClass = class(TInterfacedObject, INotificationClass)
-        private
-            fAction: TInterfaceActions;
-            fActionValue: Double;
-        public
-            property actions: TInterfaceActions read fAction write fAction;
-            property ActionValue: Double read fActionValue write fActionValue;
+    private
+        fAction: TInterfaceActions;
+        fActionValue: Double;
+    public
+        property actions: TInterfaceActions read fAction write fAction;
+        property ActionValue: Double read fActionValue write fActionValue;
     end;
 
 implementation

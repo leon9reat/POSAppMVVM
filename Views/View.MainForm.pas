@@ -28,7 +28,8 @@ type
 
     public
         { Public declarations }
-        property ViewModel: IMainViewModelInterface read fViewModel write setViewModel;
+        property ViewModel: IMainViewModelInterface read fViewModel write
+            setViewModel;
     end;
 
 var
@@ -37,7 +38,8 @@ var
 implementation
 
 uses
-    Model.ProSu.Subscriber, View.TestPrintInvoice, Declarations, Model.ProSu.InterfaceActions;
+    Model.ProSu.Subscriber, View.TestPrintInvoice, Declarations,
+        Model.ProSu.InterfaceActions, View.InvoiceForm, Model.Invoice, ViewModel.Invoice;
 
 {$R *.fmx}
 
@@ -46,10 +48,26 @@ uses
 procedure TMainForm.ButtonInvoiceClick(Sender: TObject);
 var
     tmpTest: TTestPrintInvoiceForm;
+    tmpInvoiceForm: TInvoiceForm;
+    invoiceModel: IInvoiceModelInterface;
+    invoiceViewModel: IInvoiceViewModelInterface;
 begin
-    tmpTest := TTestPrintInvoiceForm.Create(Self);
-    tmpTest.Provider.subscribe(fSubscriber);
-    tmpTest.Show;
+    //    tmpTest := TTestPrintInvoiceForm.Create(Self);
+    //    tmpTest.Provider.subscribe(fSubscriber);
+    //    tmpTest.Show;
+
+    invoiceModel := CreateInvoiceModelClass;
+    invoiceViewModel := CreateInvoiceViewModelClass;
+    invoiceViewModel.Model := invoiceModel;
+
+    tmpInvoiceForm := TInvoiceForm.Create(Self);
+    tmpInvoiceForm.ViewModel := invoiceViewModel;
+    try
+        tmpInvoiceForm.ShowModal;
+    finally
+        tmpInvoiceForm.Free;
+    end;
+
 end;
 
 procedure TMainForm.FormCreate(Sender: TObject);
@@ -67,7 +85,8 @@ begin
     begin
         tmpNotifClass := notifyClass as TNotificationClass;
         if actUpdateTotalSalesFigure in tmpNotifClass.actions then
-            LabelTotalSalesFigure.Text := Format('%10.2f', [tmpNotifClass.ActionValue]);
+            LabelTotalSalesFigure.Text := Format('%10.2f',
+                [tmpNotifClass.ActionValue]);
 
     end;
 
