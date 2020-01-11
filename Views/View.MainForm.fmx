@@ -1,0 +1,80 @@
+object MainForm: TMainForm
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 411
+  ClientWidth = 580
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object LabelTitle: TLabel
+    Align = Top
+    AutoSize = True
+    StyledSettings = [Family, FontColor]
+    Margins.Left = 20.000000000000000000
+    Margins.Top = 20.000000000000000000
+    Margins.Right = 20.000000000000000000
+    Position.X = 20.000000000000000000
+    Position.Y = 20.000000000000000000
+    Size.Width = 540.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 24.000000000000000000
+    TextSettings.Font.Style = [fsBold]
+    TextSettings.HorzAlign = Center
+    TextSettings.WordWrap = False
+    Text = 'LabelTitle'
+  end
+  object LabelTotalSales: TLabel
+    Align = Left
+    AutoSize = True
+    StyledSettings = [Family, FontColor]
+    Margins.Left = 40.000000000000000000
+    Margins.Top = 40.000000000000000000
+    Position.X = 40.000000000000000000
+    Position.Y = 188.000000000000000000
+    Size.Width = 167.000000000000000000
+    Size.Height = 223.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 22.000000000000000000
+    TextSettings.Font.Style = [fsBold]
+    TextSettings.VertAlign = Leading
+    TextSettings.WordWrap = False
+    Text = 'LabelTotalSales'
+  end
+  object LabelTotalSalesFigure: TLabel
+    Align = Right
+    AutoSize = True
+    StyledSettings = [Family]
+    Margins.Top = 40.000000000000000000
+    Margins.Right = 40.000000000000000000
+    Position.X = 308.000000000000000000
+    Position.Y = 188.000000000000000000
+    Size.Width = 232.000000000000000000
+    Size.Height = 223.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 22.000000000000000000
+    TextSettings.Font.Style = [fsBold]
+    TextSettings.FontColor = claGreen
+    TextSettings.HorzAlign = Trailing
+    TextSettings.VertAlign = Leading
+    TextSettings.WordWrap = False
+    Text = 'LabelTotalSalesFigure'
+  end
+  object ButtonInvoice: TButton
+    Align = Top
+    Margins.Left = 40.000000000000000000
+    Margins.Top = 20.000000000000000000
+    Margins.Right = 40.000000000000000000
+    Position.X = 40.000000000000000000
+    Position.Y = 72.000000000000000000
+    Size.Width = 500.000000000000000000
+    Size.Height = 76.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    Text = 'ButtonInvoice'
+    OnClick = ButtonInvoiceClick
+  end
+end
